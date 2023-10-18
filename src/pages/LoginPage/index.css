@@ -1,0 +1,19 @@
+
+
+
+.wrapperDesh{
+    background: url('https://images.adsttc.com/media/images/573c/90c0/e58e/ce1e/1600/0007/newsletter/Here_is_a_theater_to_unfold_an_outstanding_drama__and_the_characters_are_book_lovers_sitting_on_the_soft_couch_or_standing_beside_the_bookshelves._0004.jpg?1463587001') no-repeat;
+    background-size: cover;
+    background-position:top;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.forma{
+    /* background: (5px); */
+    filter: drop-shadow(8px 8px 10px rgb(19, 59, 206));
+}
+.forma:hover{
+    filter: drop-shadow(8px 8px 10px rgb(19, 206, 47));
+
+}

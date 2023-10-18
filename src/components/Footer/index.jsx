@@ -1,7 +1,10 @@
+import Phone from '../../assets/image/phone.svg'
+import Telegram from '../../assets/image/telegram.svg'
+import Instagram from '../../assets/image/instagram.svg'
 
-function index() {
+function Footer() {
   return (
-    <div className="Footer bg-black">
+    <div className="Footer  w-full bg-[#242424]">
         <div className="container">
         <div className="wrapperFoter flex justify-between items-center pt-[60px] p-5">
                 <div className="logo">
@@ -20,7 +23,7 @@ function index() {
                 </div>                
         </div>
         <div className="flex justify-between items-center text-white px-5">
-                  <h5 className="w-[160px] p-4 text-start">Umid qilamizki, bizdan yaxshi foyda kurdingiz</h5>
+                  <h5 className="w-[160px] p-2 text-start">Umid qilamizki, bizdan yaxshi foyda kurdingiz</h5>
                   <ul className="list flex w-[500px] justify-between items-center">
                     <li className="item"><a href="#" className="link text-white">Biz haqimizda</a></li>
                     <li className="item"><a href="#" className="link text-white">Asosiy</a></li>
@@ -28,10 +31,25 @@ function index() {
                     <li className="item"><a href="#" className="link text-white">Kontaktlar</a></li>
                   </ul>
         </div>
-        <hr />
+        </div>
+        <span className="block w-[100%] h-[0.5px] bg-white"></span>
+        <div className="container">
+          <ul className="list flex justify-between items-center p-4 py-8">
+            <li className="item">
+              <a href="#" className="text-white"> ©2022 Thousand Sunny. All rights reserved </a>
+            </li>
+            <li className="item flex justify-between items-center w-[170px]">
+              <a href="#" className=" rounded-full p-1"><img src={Phone} alt="telefon" /></a>
+              <a href="#" className='text-white'><img src={Telegram} alt="telegram" /></a>
+              <a href="#"><img src={Instagram} alt="instagram" /></a>
+            </li>
+            <li className="item">
+              <a href="#" className="link text-white">Design by Suges group</a>
+            </li>
+          </ul>
         </div>
     </div>
   )
 }
 
-export default index
+export default Footer;
