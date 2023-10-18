@@ -1,18 +1,17 @@
-// import Login from './components/LoginPage'
-import Hero from "./components/Hero";
-import Footer from "./components/Footer";
+import Login from "./pages/LoginPage";
+import Dashboard from "./pages/Dashboard";
 import "./App.css";
-import Center from "./components/Center";
-import Header from "./components/Header";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <>
-      {/* <Login/> */}
-      <Header />
-      <Hero />
-<Center/>
-<Footer/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
     </>
   );
 }

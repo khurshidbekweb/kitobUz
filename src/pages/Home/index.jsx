@@ -1,8 +1,14 @@
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import Hero from "../../components/Hero";
 import bookImg from "../../assets/image/bookImg.png"
-const Center = () => {
-  return (
-    <>
-      <section className="main">
+
+const Home = () => {
+    return (
+        <>
+<Header/>
+<Hero/>
+<section className="main">
         <div className="container">
           <div className="main-inner mb-5">
             <h1 className="title mt-16 text-center font-bold text-4xl">
@@ -143,8 +149,14 @@ const Center = () => {
           </div>
         </div>
       </section>
-    </>
-  );
+
+
+<Footer/>
+
+
+
+        </>
+    );
 };
 
-export default Center;
+export default Home;

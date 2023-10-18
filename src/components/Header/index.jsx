@@ -4,7 +4,8 @@ import { useState } from "react";
 import Loc from "../../assets/image/place.svg";
 import Sun from '../../assets/image/linght.svg'
 import Moon from "../../assets/image/moon.svg"
-import "./Header.css";
+import { NavLink } from "react-router-dom";
+import "./index.css";
 // import { useEffect } from "react";
 // import { getAllProducts } from "../utils/getAllProducts";
 function Header() {
@@ -15,9 +16,9 @@ function Header() {
 //   }, []);
 //   console.log(products)
   return (
-    <div className="header bg-white dark:bg-black">
-      <div className="container">
-        <div className="wrapp er flex justify-between items-center">
+    <div className="header w-[100%] text-center bg-white items-center fixed z-30 top-0 ">
+      <div className="container mx-auto">
+        <div className="wrapper  flex justify-between items-center">
           <div className="logo">
             <a href="#">
               <h1 className="text-[35px] font-[800]">KitobUz</h1>
@@ -54,9 +55,9 @@ function Header() {
             <button className="add bg-green-600 p-2 px-4 rounded text-white font-medium">
               Add
             </button>
-            <button className="singIn bg-yellow-400 p-2 px-4 font-medium rounded">
+            <NavLink to="/login" className="singIn bg-yellow-400 p-2 px-4 font-medium rounded">
               Ro`yxatdan o`tish
-            </button>
+            </NavLink>
           </div>
         </div>
       </div>
