@@ -8,4 +8,8 @@ export default {
     extend: {},
   },
   plugins: [],
+  exports : {
+    darkMode: 'className',
+  },
+
 }
