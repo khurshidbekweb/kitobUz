@@ -5,8 +5,9 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import {context} from './context/context'
 import { useState } from "react";
-// import Header from "./components/Header";
-
+import DashMain from './pages/Dashboard/Books'
+import Dawload from './pages/Dashboard/Davloadn'
+import DashHome from './pages/Dashboard/Home'
 function App() {
   const [mode, setMode] = useState(localStorage.getItem('mode' || 'light'))  
 
@@ -27,9 +28,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard"  element={<Dashboard />}>
+          <Route index element ={<DashHome/>}/>
+          <Route path="books" element= {<DashMain/>}/>
+          <Route path="download"  element= {<Dawload/>}/>
+        </Route>
       </Routes>
-    </context.Provider>
+    </context.Provider>    
     </>
   );
 }
