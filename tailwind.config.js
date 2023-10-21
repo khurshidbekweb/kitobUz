@@ -9,7 +9,7 @@ export default {
   },
   plugins: [],
   exports : {
-    darkMode: 'className',
   },
+  darkMode: 'class',
 
 }

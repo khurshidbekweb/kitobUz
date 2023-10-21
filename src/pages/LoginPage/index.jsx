@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import "./index.css";
-// import { LogIn } from "../../utils/LogIn";
 import toastify from "../../utils/toastify";
 function Index() {
   const navigate = useNavigate();
@@ -13,8 +12,7 @@ function Index() {
       if (username == "name" && password == "aaa") {
         toastify.successMessage("Successfully signed in !");
           navigate("/dashboard");
-      }
-      // await LogIn({username,password});
+      }      
     } catch {
       toastify.errorMessage("Username or password is incorrect ");
     }
@@ -37,7 +35,7 @@ function Index() {
                     name="username"
                     required
                     placeholder="User"
-                    className="border-2 border-sky-500  rounded bg-slate-200 focus:outline-none pr-5"
+                    className="border-2 dark:text-black border-sky-500  rounded bg-slate-200 focus:outline-none pr-5"
                   />
                   <i className="bx bx-user absolute mr-1"></i>
                 </label>
@@ -48,7 +46,7 @@ function Index() {
                     id="password"
                     required
                     placeholder="Password"
-                    className="border-2 border-sky-500  rounded bg-slate-200 focus:outline-none pr-5"
+                    className="border-2 dark:text-black border-sky-500  rounded bg-slate-200 focus:outline-none pr-5"
                   />
                   <i className="bx bx-lock-alt absolute mr-1"></i>
                 </label>

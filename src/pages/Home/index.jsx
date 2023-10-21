@@ -1,14 +1,14 @@
 import Footer from "../../components/Footer";
-import Header from "../../components/Header";
 import Hero from "../../components/Hero";
 import bookImg from "../../assets/image/bookImg.png"
+import Header from "../../components/Header";
 
 const Home = () => {
     return (
-        <>
+<>
 <Header/>
 <Hero/>
-<section className="main">
+<section className="main p-5">
         <div className="container">
           <div className="main-inner mb-5">
             <h1 className="title mt-16 text-center font-bold text-4xl">
