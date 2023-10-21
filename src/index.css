@@ -21,4 +21,6 @@
 .active{
     background-color: rgb(235, 235, 119);
     color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
 }
