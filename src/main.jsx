@@ -7,9 +7,11 @@ import { ToastContainer } from "react-toastify";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <App />    
+    <div className="dark:bg-slate-500 dark:text-white">
+    <App />
+    </div>    
     <ToastContainer 
-      position="top-center"
+      position="top-right"
       autoClose={1500}
     />
   </BrowserRouter>
