@@ -2,12 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-* *::before *::after{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
+
 .container{
     width: 1240px;
     margin: 0 auto;
@@ -18,9 +13,15 @@
     padding: 0;
     box-sizing: border-box;
 }
-.active{
-    background-color: rgb(235, 235, 119);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 8px;
+*::-webkit-scrollbar-track-piece{
+    display: none;
 }
+.active{
+    background: rgb(209, 209, 84);
+    color: white;
+    padding: 5px 50px;
+    border-radius: 8px;
+    width: 100%;
+    border-radius: 5px;
+}
+
