@@ -13,9 +13,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-*::-webkit-scrollbar-track-piece{
-    display: none;
-}
+
 .active{
     background: rgb(209, 209, 84);
     color: white;
