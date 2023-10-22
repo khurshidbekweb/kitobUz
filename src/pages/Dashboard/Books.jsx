@@ -1,13 +1,17 @@
 
+import AddBook from "../../components/AddBooks";
 function Book() {
   return (
     <>
       <div className="relative overflow-x-auto shadow-md">
         <div className="userList flex justify-between items-center p-2 px-2 font-bold">
           <h2 className="text-[26px]">Books</h2>
+
           <button className="border p-2 rounded text-white bg-green-400 px-3">
             Add new Book
           </button>
+          <AddBook />
+
         </div>
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -59,3 +63,4 @@ function Book() {
 }
 
 export default Book;
+
