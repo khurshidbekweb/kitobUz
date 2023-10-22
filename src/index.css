@@ -20,9 +20,12 @@
     padding: 0 10px;
 }
 
-*::-webkit-scrollbar-track-piece{
-    display: none;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 .active{
     background: rgb(209, 209, 84);
     color: white;
