@@ -1,5 +1,7 @@
+
 import "./index.css"
 const Hero = () => {
+
   return (
     <>
       <div className="hero  pt-20">
@@ -14,28 +16,22 @@ const Hero = () => {
             </form>
            <div className="select flex items-center gap-4 mt-12 justify-center">
            <select name="#" id="" className="px-4 dark:text-black rounded drop-shadow-xl focus:outline-none py-2 bg-stone-200 w-[200px] font-semibold">
-                <option value="1" disabled selected>Janr</option>
+                <option hidden disabled selected>Janr</option>
+                <option value="1" >AAA</option>
+                <option value="1" >BBB</option>
+                <option value="1" >CCC</option>
+            </select>
+            <select name="#"  className="px-4 dark:text-black rounded drop-shadow-xl focus:outline-none py-2 bg-stone-200 w-[200px] font-semibold">
+                <option hidden disabled selected>Avtor</option>
                 <option value="1" >AAA</option>
                 <option value="1" >BBB</option>
                 <option value="1" >CCC</option>
             </select>
             <select name="#" id="" className="px-4 dark:text-black rounded drop-shadow-xl focus:outline-none py-2 bg-stone-200 w-[200px] font-semibold">
-                <option value="1" disabled selected>Avtor</option>
-                <option value="1" >AAA</option>
-                <option value="1" >BBB</option>
-                <option value="1" >CCC</option>
-            </select>
-            <select name="#" id="" className="px-4 dark:text-black rounded drop-shadow-xl focus:outline-none py-2 bg-stone-200 w-[200px] font-semibold">
-                <option value="1" disabled selected>Kitob holati</option>
-                <option value="1" >AAA</option>
-                <option value="1" >BBB</option>
-                <option value="1" >CCC</option>
-            </select>
-            <select name="#" id="" className="px-4 dark:text-black rounded drop-shadow-xl focus:outline-none py-2 bg-stone-200 w-[200px] font-semibold">
-                <option value="1" disabled selected>Kitob tili</option>
-                <option value="1" >AAA</option>
-                <option value="1" >BBB</option>
-                <option value="1" >CCC</option>
+                <option hidden disabled selected>Kitob holati</option>
+                <option value="new" >Yangi</option>
+                <option value="normal" >Oddiy</option>
+                <option value="old" >Eski</option>
             </select>
           </div>
           </div>

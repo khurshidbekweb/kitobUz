@@ -7,8 +7,24 @@ import { context } from "../../context/context";
 import { useContext } from "react";
 import "./index.css";
 
+
+import {getAllLanguage} from "../../utils/getAllLanguage";
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+
 function Header() {
   const { mode, setMode } = useContext(context);
+  // const [language, setLanguage] = useState(localStorage.getItem('lang') || 'uz')
+
+  const res = useQuery({
+    queryKey: ["get_Language"],
+    queryFn: getAllLanguage
+  })
+  console.log(res.data.data);
+//  { res.data.data && res.data.data.filter((item)=>{
+//         setLanguage([...language, item.code])
+// })}
+//   console.log(language);
   return (
     <div className="header w-[100%] text-center dark:bg-slate-600 dark:text-yellow-50 bg-white items-center fixed z-30 top-0 ">
       <div className="container mx-auto">
