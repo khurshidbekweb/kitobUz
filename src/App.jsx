@@ -1,13 +1,20 @@
-import Login from "./pages/LoginPage";
-import Dashboard from "./pages/Dashboard";
-import "./App.css";
-import { Route, Routes } from "react-router-dom";
+// Import Pages]
 import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
+import Login from "./pages/LoginPage";
+import DashHome from './pages/Dashboard/Home'
+import Author from './pages/Dashboard/Author'
+import Books from './pages/Dashboard/Books'
+import Language from "./pages/Dashboard/Language";
+// Import Hooks
+import { Route, Routes } from "react-router-dom";
 import {context} from './context/context'
 import { useState } from "react";
-import DashMain from './pages/Dashboard/Books'
-import Dawload from './pages/Dashboard/Davloadn'
-import DashHome from './pages/Dashboard/Home'
+// IMpors Css
+import "./App.css";
+import Ganre from "./pages/Dashboard/Ganre";
+import Translate from "./pages/Dashboard/translate";
+
 function App() {
   const [mode, setMode] = useState(localStorage.getItem('mode' || 'light'))  
 
@@ -30,8 +37,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard"  element={<Dashboard />}>
           <Route index element ={<DashHome/>}/>
-          <Route path="books" element= {<DashMain/>}/>
-          <Route path="download"  element= {<Dawload/>}/>
+          <Route path="books" element= {<Books/>}/>
+          <Route path="author"  element= {<Author/>}/>
+          <Route path="ganre"  element= {<Ganre/>}/>
+          <Route path="language"  element= {<Language/>}/>
+          <Route path="translate"  element= {<Translate/>}/>
         </Route>
       </Routes>
     </context.Provider>    

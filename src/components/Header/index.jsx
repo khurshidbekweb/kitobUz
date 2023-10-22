@@ -19,8 +19,7 @@ function Header() {
             </a>
           </div>
           <nav className="w-[750px] flex justify-between items-center">
-            <a href="#" className="hover:text-green-800 dark:hover:text-white font-medium p-2 link">
-              {" "}
+            <a href="#" className="hover:text-green-800 dark:hover:text-white font-medium p-2 link">              
               <img src={Loc} alt="loc" className="inline mx-1" />
               Toshkent shahar
             </a>
@@ -34,9 +33,7 @@ function Header() {
                   <option value="rub">RUB</option>
                 </select>
               </label>
-              <label className="font-bold text-[32xp]">
-                {" "}
-                Language:
+              <label className="font-bold text-[32xp]">Language:
                 <select className="border p-1 rounded shadow font-medium mx-1 dark:text-black">
                   <option value="uz">UZB</option>
                   <option value="eng">ENG</option>
@@ -47,8 +44,8 @@ function Header() {
             <button
               style={
                 mode == "light"
-                  ? { backgroundColor: "rgba(98, 99, 95, 0.767)" }
-                  : { backgroundColor: "rgba(188, 198, 107, 0.767)" }
+                  ? { backgroundColor: "silver" }
+                  : { backgroundColor: "#F1C93B" }
               }
               onClick={() => setMode(mode == "dark" ? "light" : "dark")}
               className="p-2 text-[22px] px-3 border rounded"

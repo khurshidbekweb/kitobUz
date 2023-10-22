@@ -23,7 +23,7 @@ function Index() {
       <div className="wrapperDash">
         <div className="container">
           <div className="flex justify-center items-center h-[100vh]">
-            <div className="forma flex flex-col justify-center gap-4 w-[25%] h-[40%] border-4 border-sky-500 rounded-md">
+            <div className="forma  flex flex-col justify-center gap-4 w-[25%] h-[40%] border-4 border-sky-500 rounded-md">
               <h1 className="login text-center text-xl font-bold">Login</h1>
               <form
                 onSubmit={handleSubmite}
