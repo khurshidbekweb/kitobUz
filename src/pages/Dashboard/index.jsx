@@ -33,7 +33,7 @@ function Index() {
               <NavLink to="author">Author</NavLink>              
               </li>
               <li className="contact p-2 rounded mt-2">
-              <NavLink to="ganre">Ganre</NavLink>              
+              <NavLink to="genre">Genre</NavLink>              
               </li>
               <li className="contact p-2 rounded mt-2">
               <NavLink to="language">Language</NavLink>              
