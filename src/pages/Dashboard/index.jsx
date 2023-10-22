@@ -5,7 +5,7 @@ import Sun from "../../assets/image/linght.svg"
 import { useContext } from "react";
 import {context} from '../../context/context'
 
-function index() {
+function Index() {
   const {mode, setMode} = useContext(context);
   return (
     <div className="container">
@@ -55,7 +55,7 @@ function index() {
                 <i className="bx bx-left-arrow"></i>
               </button>
               
-              <div className="flex w-[450px] justify-between">
+              <div className="flex w-[650px] justify-between">
               <form className="w-[350px] relative">
                 <input
                   type="search"
@@ -64,6 +64,13 @@ function index() {
                 />
                 <i className="bx bx-search absolute dark:text-black right-2 top-2"></i>
               </form>
+              <label className="font-bold text-[32xp]">Language:
+                <select className="border p-1 rounded shadow font-medium mx-1 dark:text-black">
+                  <option value="uz">UZB</option>
+                  <option value="eng">ENG</option>
+                  <option value="rus">RUS</option>
+                </select>
+              </label>
               <button
               style={
                 mode == "light"
@@ -84,4 +91,4 @@ function index() {
   )
 }
 
-export default index
+export default Index
