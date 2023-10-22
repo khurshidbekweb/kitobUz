@@ -23,26 +23,26 @@ function Index() {
               />
             </div>
             <ul className="w-[100%] p-2 list text-center mx-auto">
-              <li className="home p-2 rounded">
+              <li className="home p-2 rounded hover:bg-cyan-500 hover:text-white">
               <NavLink to="/dashboard/">Reports</NavLink>
               </li>
-              <li className="about p-2 rounded mt-2">
+              <li className="about p-2 rounded mt-2 hover:bg-cyan-500 hover:text-white">
               <NavLink to="books">Books</NavLink>
               </li>
-              <li className="contact p-2 rounded mt-2">
+              <li className="contact p-2 rounded mt-2 hover:bg-cyan-500 hover:text-white">
               <NavLink to="author">Author</NavLink>              
               </li>
-              <li className="contact p-2 rounded mt-2">
+              <li className="contact p-2 rounded mt-2 hover:bg-cyan-500 hover:text-white">
               <NavLink to="genre">Genre</NavLink>              
               </li>
-              <li className="contact p-2 rounded mt-2">
+              <li className="contact p-2 rounded mt-2 hover:bg-cyan-500 hover:text-white">
               <NavLink to="language">Language</NavLink>              
               </li>
-              <li className="contact p-2 rounded mt-2">
+              <li className="contact p-2 rounded mt-2 hover:bg-cyan-500 hover:text-white">
               <NavLink to="translate">Translate</NavLink>              
               </li>
               <li className="contact text-red-900 underline rounded mt-12">
-              <NavLink to="/" className= "flex items-center tpx]" ><p>LogOut</p>
+              <NavLink to="/" className= "flex items-center tpx] hover:bg-cyan-500 hover:text-white" ><p>LogOut</p>
                                 <span className="block mt-2 mx-2"><i className='bx bx-log-in-circle text-[20px]'></i></span>
               </NavLink>              
               </li>
