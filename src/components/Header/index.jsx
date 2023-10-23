@@ -9,6 +9,8 @@ import "./index.css";
 
 
 import {getAllLanguage} from "../../utils/getAllLanguage";
+// import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 function Header() {
@@ -24,6 +26,7 @@ function Header() {
     queryKey: ["get_Language"],
     queryFn: getAllLanguage
   })
+  console.log(res);
   return (
     <div className="header w-[100%] text-center dark:bg-slate-600 dark:text-yellow-50 bg-white items-center fixed z-30 top-0 ">
       <div className="container mx-auto">
