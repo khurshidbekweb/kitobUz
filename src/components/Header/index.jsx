@@ -10,10 +10,10 @@ import "./index.css";
 
 import {getAllLanguage} from "../../utils/getAllLanguage";
 // import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 function Header() {
+
   const queryClient = useQueryClient()
   const handleLanguageSelect = (e) =>{
       setLang(e.target.value);
@@ -46,6 +46,7 @@ function Header() {
                 {" "}
                 Valyuta:
                 <select className="border dark:text-black p-1 rounded shadow font-medium mx-1">
+                <option  value="sum">SUM</option>
                   <option value="sum">SUM</option>
                   <option value="usd">USD</option>
                   <option value="rub">RUB</option>

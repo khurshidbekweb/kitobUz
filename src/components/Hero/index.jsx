@@ -43,7 +43,7 @@ const genre = useQuery({
                 id=""
                 className="px-4 dark:text-black rounded drop-shadow-xl focus:outline-none py-2 bg-stone-200 w-[200px] font-semibold"
               >
-                <option hidden disabled selected>
+                <option hidden disabled >
                   Janr
                 </option>
                   {genre?.data?.data && genre.data.data.map((item)=>{ 
@@ -54,7 +54,7 @@ const genre = useQuery({
                 name="#"
                 className="px-4 dark:text-black rounded drop-shadow-xl focus:outline-none py-2 bg-stone-200 w-[200px] font-semibold"
               >
-                <option hidden disabled selected>
+                <option hidden disabled >
                   Avtor
                 </option>
                 {author?.data?.data && 
@@ -67,7 +67,7 @@ const genre = useQuery({
                 id=""
                 className="px-4 dark:text-black rounded drop-shadow-xl focus:outline-none py-2 bg-stone-200 w-[200px] font-semibold"
               >
-                <option hidden disabled selected>
+                <option hidden disabled >
                   Kitob holati
                 </option>
                 <option value="new">Yangi</option>
