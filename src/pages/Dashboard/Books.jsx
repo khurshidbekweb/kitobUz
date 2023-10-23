@@ -6,10 +6,6 @@ function Book() {
       <div className="relative overflow-x-auto shadow-md">
         <div className="userList flex justify-between items-center p-2 px-2 font-bold">
           <h2 className="text-[26px]">Books</h2>
-
-          <button className="border p-2 rounded text-white bg-green-400 px-3">
-            Add new Book
-          </button>
           <AddBook />
 
         </div>

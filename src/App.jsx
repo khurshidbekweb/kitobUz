@@ -16,7 +16,8 @@ import Ganre from "./pages/Dashboard/Ganre";
 import Translate from "./pages/Dashboard/translate";
 
 function App() {
-  const [mode, setMode] = useState(localStorage.getItem('mode' || 'light'))  
+  const [mode, setMode] = useState(localStorage.getItem('mode')  || 'light')
+  const [lang, setLang] = useState(localStorage.getItem('language')  || 'uz')  
 
     if(mode == 'dark'){
       document.querySelector('html').classList.remove('light');
@@ -31,7 +32,7 @@ function App() {
     }  
   return (
     <>
-    <context.Provider value={{mode,setMode}}>    
+    <context.Provider value={{mode,setMode, lang, setLang}}>    
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />

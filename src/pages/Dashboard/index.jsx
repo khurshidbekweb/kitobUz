@@ -4,9 +4,16 @@ import Moon from '../../assets/image/moon.svg'
 import Sun from "../../assets/image/linght.svg"
 import { useContext } from "react";
 import {context} from '../../context/context'
+import { useQuery } from "@tanstack/react-query";
+import { getAllLanguage } from "../../utils/getAllLanguage";
 
 function Index() {
   const {mode, setMode} = useContext(context);
+  const language = useQuery({
+    queryKey: ['get_Language'],
+    queryFn: getAllLanguage
+  })
+  console.log(language);
   return (
     <div className="container">
         <div className="wrapper h-[100vh] overflow-hidden bg-slate-100 border dark:border-none flex w-[100%] dark:bg-slate-400 items-start">
@@ -66,9 +73,10 @@ function Index() {
               </form>
               <label className="font-bold text-[32xp]">Language:
                 <select className="border p-1 rounded shadow font-medium mx-1 dark:text-black">
-                  <option value="uz">UZB</option>
-                  <option value="eng">ENG</option>
-                  <option value="rus">RUS</option>
+                  <option value="uz">Uzbek</option>
+                  {language?.data?.data && language?.data?.data.filter(item => item.code != 'uz').map((item)=>{
+                    return <option key={item.code} value={item.code}>{item.title}</option>
+                  })}
                 </select>
               </label>
               <button
