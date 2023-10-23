@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* -------------hide scrollbar */
 *::-webkit-scrollbar{
     display: none;
@@ -21,11 +27,11 @@
 }
 
 .active{
-    background: rgb(209, 209, 84);
+    width: 100%;
+    background: rgb(6 182 212);
     color: white;
     padding: 5px 50px;
     border-radius: 8px;
-    width: 100%;
     border-radius: 5px;
 }
 
