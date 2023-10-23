@@ -11,20 +11,22 @@ import "./index.css";
 import {getAllLanguage} from "../../utils/getAllLanguage";
 // import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 function Header() {
-  const { mode, setMode } = useContext(context);
-  // const [language, setLanguage] = useState(localStorage.getItem('lang') || 'uz')
+  const queryClient = useQueryClient()
+  const handleLanguageSelect = (e) =>{
+      setLang(e.target.value);
+      localStorage.setItem('language', e.target.value)
+      queryClient.invalidateQueries()
+  }
 
+  const { mode, setMode, setLang } = useContext(context);
   const res = useQuery({
     queryKey: ["get_Language"],
     queryFn: getAllLanguage
   })
   console.log(res);
-//  { res.data.data && res.data.data.filter((item)=>{
-//         setLanguage([...language, item.code])
-// })}
-//   console.log(language);
   return (
     <div className="header w-[100%] text-center dark:bg-slate-600 dark:text-yellow-50 bg-white items-center fixed z-30 top-0 ">
       <div className="container mx-auto">
@@ -50,10 +52,11 @@ function Header() {
                 </select>
               </label>
               <label className="font-bold text-[32xp]">Language:
-                <select className="border p-1 rounded shadow font-medium mx-1 dark:text-black">
-                  <option value="uz">UZB</option>
-                  <option value="eng">ENG</option>
-                  <option value="rus">RUS</option>
+                <select onChange={handleLanguageSelect} className="border p-1 rounded shadow font-medium mx-1 dark:text-black">
+                <option value='uz'>Uzbek</option>
+                  {res?.data?.data && res.data.data.filter(e => e.code != 'uz').map((item)=>{                    
+                    return  <option key={item.id}  value={item.code}>{item.title}</option>                    
+                  })}
                 </select>
               </label>
             </form>
