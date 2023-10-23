@@ -12,7 +12,7 @@ import {context} from './context/context'
 import { useState } from "react";
 // IMpors Css
 import "./App.css";
-import Ganre from "./pages/Dashboard/Ganre";
+import Genre from "./pages/Dashboard/Genre";
 import Translate from "./pages/Dashboard/translate";
 
 function App() {
@@ -40,7 +40,7 @@ function App() {
           <Route index element ={<DashHome/>}/>
           <Route path="books" element= {<Books/>}/>
           <Route path="author"  element= {<Author/>}/>
-          <Route path="ganre"  element= {<Ganre/>}/>
+          <Route path="genre"  element= {<Genre/>}/>
           <Route path="language"  element= {<Language/>}/>
           <Route path="translate"  element= {<Translate/>}/>
         </Route>
