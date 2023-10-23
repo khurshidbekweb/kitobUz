@@ -9,7 +9,7 @@ import "./index.css";
 
 
 import {getAllLanguage} from "../../utils/getAllLanguage";
-import { useState } from "react";
+// import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 function Header() {
@@ -20,7 +20,7 @@ function Header() {
     queryKey: ["get_Language"],
     queryFn: getAllLanguage
   })
-  console.log(res.data.data);
+  console.log(res);
 //  { res.data.data && res.data.data.filter((item)=>{
 //         setLanguage([...language, item.code])
 // })}
