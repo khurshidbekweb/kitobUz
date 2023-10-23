@@ -6,7 +6,7 @@ function Book() {
       <div className="relative overflow-x-auto shadow-md">
         <div className="userList flex justify-between items-center p-2 px-2 font-bold">
 
-          <h2 className="text-[26px]" title="Yangi kitob qo'shishdan oldin muallif nomini va kitob janrini kiritishingiz kerak">Books</h2>
+         <h2 className="text-[26px]" title="Yangi kitob qo'shishdan oldin muallif nomini va kitob janrini kiritishingiz kerak">Books</h2>
 
           <AddBook />
 
