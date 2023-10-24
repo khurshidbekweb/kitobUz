@@ -137,7 +137,7 @@ function Index() {
             <li className="contact text-red-900 underline rounded mt-12">
               <NavLink
                 to="/"
-                className="flex items-center tpx] hover:bg-cyan-500 hover:text-white"
+                className="flex items-center tpx] px-8 py-[5px] rounded-lg hover:bg-red-500 hover:text-white"
               >
                 <p>LogOut</p>
                 <span className="block mt-2 mx-2">

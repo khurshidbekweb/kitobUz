@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getAllLanguage } from "../../utils/getAllLanguage";
 
-const AddTranslate = () => {
+const AddTranslateModal = () => {
   const languages = useQuery({
     queryKey: ["get_all_language"],
     queryFn: getAllLanguage,
@@ -12,8 +12,11 @@ const AddTranslate = () => {
   return (
     <>
       <button
-        data-modal-target="add-translate-modal"
-        data-modal-toggle="add-translate-modal"
+       onClick={() => {
+        document
+          .querySelector("#add-translate-modal")
+          .classList.replace("hidden", "visible");
+      }}
         className="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         type="button"
       >
@@ -29,6 +32,11 @@ const AddTranslate = () => {
         <div className="modal relative w-full max-w-lg max-h-full mx-auto">
           <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <button
+            onClick={() => {
+              document
+                .querySelector("#add-translate-modal")
+                .classList.replace("visible", "hidden");
+            }}
               type="button"
               className="absolute top-0 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
               data-modal-hide="add-translate-modal"
@@ -124,4 +132,4 @@ const AddTranslate = () => {
   );
 };
 
-export default AddTranslate;
+export default AddTranslateModal;
