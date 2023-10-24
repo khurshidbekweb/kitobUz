@@ -7,7 +7,7 @@ const Index = () => {
     queryKey: ['get_all_author'],
     queryFn:getAllBooks
   })
-  console.log(reports);
+  // console.log(reports);
   return (
     <>
       <h2 className="text-[26px]  font-medium pl-5 p-3">Reports</h2>
