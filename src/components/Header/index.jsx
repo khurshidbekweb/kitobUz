@@ -81,7 +81,7 @@ function Header() {
               to="/login"
               className="singIn bg-yellow-400 p-2 px-4 font-medium rounded"
             >
-              Ro`yxatdan o`tish
+              Admin
             </NavLink>
           </div>
         </div>
