@@ -4,7 +4,7 @@ import { getAllLanguage } from "../../utils/getAllLanguage";
 
 function Language() {
   const languageAll = useQuery({
-    queryKey: ["language_all"],
+    queryKey: ["language_all_item"],
     queryFn: getAllLanguage,
   });
   return (
@@ -27,7 +27,7 @@ function Language() {
             </tr>
           </thead>
           <tbody>
-            {languageAll?.data.data &&
+            {languageAll?.data?.data &&
               languageAll.data.data.map((item) => {
                 return (
                   <tr
