@@ -1,11 +1,11 @@
-import AddTranslate from "../../components/Modals/AddTranslate";
+import AddTranslateModal from "../../components/Modals/AddTranslateModal";
 
 function Translate() {
   return (
     <div>
       <div className="userList flex justify-between items-center p-2 px-2 font-bold">
         <h1 className="text-[22px] font-medium pl-5 p-3">Translate</h1>
-        <AddTranslate/>
+        <AddTranslateModal/>
       </div>
       <div className="relative overflow-x-auto shadow-md">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
