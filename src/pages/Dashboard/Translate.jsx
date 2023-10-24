@@ -4,11 +4,9 @@ import { getTranslate } from "../../utils/getTranslateAll";
 
 function Translate() {
   const translateBook = useQuery({
-
     queryKey: ['translate_all_item'],
     queryFn: getTranslate
   })
-  console.log(translateBook.data.data);
   return (
     <div>
       <div className="userList flex justify-between items-center p-2 px-2 font-bold">

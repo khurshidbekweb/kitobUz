@@ -55,7 +55,7 @@ function Index() {
                   <NavLink to="language">Language</NavLink>              
               </li>
               <li className="contact p-2 rounded mt-2 hover:bg-cyan-500 hover:text-white">
-                  <NavLink to="translate">Translate</ >              
+                  <NavLink to="translate">Translate</NavLink >              
               </li>
               <li className="contact text-red-900 underline rounded mt-12">
                   <NavLink to="/" className= "flex items-center tpx] hover:bg-cyan-500 hover:text-white" ><p>LogOut</p>

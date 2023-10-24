@@ -61,7 +61,7 @@ function Book() {
                     <td className="px-6 py-4">{item.author.value}</td>
                     <td className="px-6 py-4 overflow-hidden">
                       <img
-                        className="w-10 rounded-full"
+                        className="w-8 h-8 rounded"
                         src={IMG_BASE_URL + item.image}
                         alt=""
                       />
