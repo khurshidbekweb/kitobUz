@@ -10,10 +10,13 @@ import "./index.css";
 
 import {getAllLanguage} from "../../utils/getAllLanguage";
 // import { useState } from "react";
+
 import { useQuery } from "@tanstack/react-query";
 import { useQueryClient } from "@tanstack/react-query";
 
+
 function Header() {
+
   const queryClient = useQueryClient()
 
   const handleLanguageSelect = (e) =>{
@@ -44,6 +47,7 @@ function Header() {
             <form className="w-[400px] flex justify-between items-cente">
               <label className="font-bold text-[32xp]">Valyuta:
                 <select className="border dark:text-black p-1 rounded shadow font-medium mx-1">
+                <option  value="sum">SUM</option>
                   <option value="sum">SUM</option>
                   <option value="usd">USD</option>
                   <option value="rub">RUB</option>
@@ -78,7 +82,7 @@ function Header() {
               to="/login"
               className="singIn bg-yellow-400 p-2 px-4 font-medium rounded"
             >
-              Ro`yxatdan o`tish
+              Admin
             </NavLink>
           </div>
         </div>

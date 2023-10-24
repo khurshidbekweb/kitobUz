@@ -1,9 +1,37 @@
-const AddBook = () => {
+import { addBook } from "../../utils/addBook";
+import toastify from "../../utils/toastify";
+
+const AddBookModal = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const title = e.target.bookTitle.value;
+    const description = e.target.bookDescription.value;
+    const language = e.target.bookLang.value;
+    const price = e.target.bookPrice.value;
+    const year = e.target.bookYear.value;
+    const status = e.target.bookStatus.value;
+    const image = e.target.bookImage.value;
+    const author = e.target.bookAuthor.value;
+    const genre = e.target.bookGenre.value;
+try{
+  await addBook({title,description,language,price,year,status,image,author,genre})
+}
+catch(err){
+toastify.infoMessage("error")
+}
+
+
+
+  };
+
   return (
     <>
       <button
-        data-modal-target="authentication-modal"
-        data-modal-toggle="authentication-modal"
+       onClick={() => {
+        document
+          .querySelector("#add-book-modal")
+          .classList.replace("hidden", "visible");
+      }}
         className="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         type="button"
       >
@@ -11,7 +39,7 @@ const AddBook = () => {
       </button>
 
       <div
-        id="authentication-modal"
+        id="add-book-modal"
         tabIndex="-1"
         aria-hidden="true"
         className="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto mx-auto h-[100%] max-h-full bg-slate-800 bg-opacity-40"
@@ -19,9 +47,13 @@ const AddBook = () => {
         <div className="modal relative w-full max-w-4xl max-h-full mx-auto">
           <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <button
+            onClick={() => {
+              document
+                .querySelector("#add-book-modal")
+                .classList.replace("visible", "hidden");
+            }}
               type="button"
               className="absolute top-0 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-              data-modal-hide="authentication-modal"
             >
               <svg
                 className="w-3 h-3"
@@ -44,22 +76,24 @@ const AddBook = () => {
               <h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">
                 Add new Book
               </h3>
-              <form className=" grid grid-cols-2 gap-4" action="#">
+              <form
+                onSubmit={handleSubmit}
+                className=" grid grid-cols-2 gap-4"
+                action="#"
+              >
                 <div>
                   <label
                     htmlFor="bookTitle"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Book title
+                    <select name="bookTitle" id="bookTitle" required className="block mt-1 w-full mb-2 py-3 border border-gray-300 rounded-lg text-sm font-medium text-gray-900 dark:text-white">
+                      <option disabled value="1">title</option>
+                      <option value="1">title</option>
+                      <option value="1">title</option>
+                      <option value="1">title</option>
+                    </select>
                   </label>
-                  <input
-                    type="text"
-                    name="bookTitle"
-                    id="bookTitle"
-                    placeholder="Book title..."
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                    required
-                  />
                 </div>
                 <div>
                   <label
@@ -67,15 +101,13 @@ const AddBook = () => {
                     className="block mb-2  text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Book description
+                    <select name="bookDescription" id="bookDescription" required className="block mt-1 w-full mb-2 py-3 border border-gray-300 rounded-lg text-sm font-medium text-gray-900 dark:text-white">
+                      <option disabled value="1">description</option>
+                      <option value="1">description</option>
+                      <option value="1">description</option>
+                      <option value="1">description</option>
+                    </select>
                   </label>
-                  <input
-                    type="text"
-                    name="bookDescription"
-                    id="bookDescription"
-                    placeholder="Book description..."
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                    required
-                  />
                 </div>
                 <div>
                   <label
@@ -84,14 +116,12 @@ const AddBook = () => {
                   >
                     Book language
                   </label>
-                  <input
-                    type="text"
-                    name="bookLang"
-                    id="bookLang"
-                    placeholder="Book language..."
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                    required
-                  />
+                  <select name="bookLang" id="bookLang" required className="block mt-1 w-full mb-2 py-3 border border-gray-300 rounded-lg text-sm font-medium text-gray-900 dark:text-white">
+                      <option disabled value="1">language</option>
+                      <option value="1">language</option>
+                      <option value="1">language</option>
+                      <option value="1">description</option>
+                    </select>
                 </div>
                 <div>
                   <label
@@ -165,17 +195,17 @@ const AddBook = () => {
                       id="bookAuthor"
                       className="block mt-1 w-full mb-2 py-3 border border-gray-300 rounded-lg text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      <option value="1" disabled selected>
+                      <option value="1" disabled>
                         Author name
                       </option>
                       <option value="2" id="axscadvfvjkvank">
                         O`tkir Hoshimov
                       </option>
                       <option value="2" id="axscadvfvjkvank">
-                        O`tkir Hoshimov
+                        Avaz O`tar
                       </option>
                       <option value="2" id="axscadvfvjkvank">
-                        O`tkir Hoshimov
+                        Hudoyberdi To`xtaboyev
                       </option>
                     </select>
                   </label>
@@ -189,7 +219,7 @@ const AddBook = () => {
                       id="bookGenre"
                       className="block mt-1 w-full mb-2 py-3 border border-gray-300 rounded-lg text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      <option value="1" disabled selected>
+                      <option value="1" disabled>
                         Book genre
                       </option>
                       <option value="2" id="axscadvfvjkvank">
@@ -211,7 +241,7 @@ const AddBook = () => {
                   </label>
                 </div>
                 <button
-                  type="submit"
+                    type="submit"
                   className="w-full max-h-[60%] mt-6 mx-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm py-0 px-2  text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                   Add book
@@ -225,4 +255,4 @@ const AddBook = () => {
   );
 };
 
-export default AddBook;
+export default AddBookModal;

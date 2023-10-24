@@ -1,17 +1,19 @@
+import AddTranslateModal from "../../components/Modals/AddTranslateModal";
 import { useQuery } from "@tanstack/react-query";
-import AddTranslate from "../../components/AddTranslate";
 import { getTranslate } from "../../utils/getTranslateAll";
 
 function Translate() {
   const translateBook = useQuery({
+
     queryKey: ['translate_all_item'],
     queryFn: getTranslate
   })
+  console.log(translateBook.data.data);
   return (
     <div>
       <div className="userList flex justify-between items-center p-2 px-2 font-bold">
         <h1 className="text-[22px] font-medium pl-5 p-3">Translate</h1>
-        <AddTranslate />
+        <AddTranslateModal />
       </div>
       <div className="relative overflow-x-auto shadow-md">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">

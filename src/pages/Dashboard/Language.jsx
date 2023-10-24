@@ -1,17 +1,17 @@
+import AddLangModal from "../../components/Modals/AddLangModal";
 import { useQuery } from "@tanstack/react-query";
-import AddLang from "../../components/AddLang";
 import { getAllLanguage } from "../../utils/getAllLanguage";
 
 function Language() {
   const languageAll = useQuery({
-    queryKey: ['language_all'],
+    queryKey: ["language_all"],
     queryFn: getAllLanguage,
-  })
+  });
   return (
     <div>
       <div className="userList flex justify-between items-center p-2 px-2 font-bold">
         <h1 className="text-[22px] font-medium pl-5 p-3">Language</h1>
-        <AddLang />
+        <AddLangModal />
       </div>
       <div className="relative overflow-x-auto shadow-md">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
