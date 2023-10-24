@@ -6,14 +6,14 @@ import DashHome from './pages/Dashboard/Home'
 import Author from './pages/Dashboard/Author'
 import Books from './pages/Dashboard/Books'
 import Language from "./pages/Dashboard/Language";
+import Genre from "./pages/Dashboard/Genre";
+import Translate from "./pages/Dashboard/Translate";
 // Import Hooks
 import { Route, Routes } from "react-router-dom";
 import {context} from './context/context'
 import { useState } from "react";
-// IMpors Css
+// IMport Css
 import "./App.css";
-import Genre from "./pages/Dashboard/Genre";
-import Translate from "./pages/Dashboard/translate";
 
 function App() {
   const [mode, setMode] = useState(localStorage.getItem('mode')  || 'light')
