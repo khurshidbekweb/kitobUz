@@ -1,11 +1,17 @@
 import AddLangModal from "../../components/Modals/AddLangModal";
+import { useQuery } from "@tanstack/react-query";
+import { getAllLanguage } from "../../utils/getAllLanguage";
 
 function Language() {
+  const languageAll = useQuery({
+    queryKey: ["language_all"],
+    queryFn: getAllLanguage,
+  });
   return (
     <div>
       <div className="userList flex justify-between items-center p-2 px-2 font-bold">
         <h1 className="text-[22px] font-medium pl-5 p-3">Language</h1>
-        <AddLangModal/>
+        <AddLangModal />
       </div>
       <div className="relative overflow-x-auto shadow-md">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -21,23 +27,31 @@ function Language() {
             </tr>
           </thead>
           <tbody>
-            <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-              >
-                en
-              </th>
-              <td className="px-6 py-4">English</td>
-              <td className="px-6 py-4 text-end">
-                <button className="btn text-[22px]  mr-4">
-                  <i className="bx bx-pencil"></i>
-                </button>
-                <button className="btn text-[22px]">
-                  <i className="bx bx-trash"></i>
-                </button>
-              </td>
-            </tr>
+            {languageAll?.data.data &&
+              languageAll.data.data.map((item) => {
+                return (
+                  <tr
+                    key={item.id}
+                    className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
+                  >
+                    <th
+                      scope="row"
+                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    >
+                      {item.code}
+                    </th>
+                    <td className="px-6 py-4">{item.title}</td>
+                    <td className="px-6 py-4 text-end">
+                      <button className="btn text-[22px]  mr-4">
+                        <i className="bx bx-pencil"></i>
+                      </button>
+                      <button className="btn text-[22px]">
+                        <i className="bx bx-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
           </tbody>
         </table>
       </div>

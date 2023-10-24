@@ -10,11 +10,15 @@ import "./index.css";
 
 import {getAllLanguage} from "../../utils/getAllLanguage";
 // import { useState } from "react";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+
+import { useQuery } from "@tanstack/react-query";
+import { useQueryClient } from "@tanstack/react-query";
+
 
 function Header() {
 
   const queryClient = useQueryClient()
+
   const handleLanguageSelect = (e) =>{
       setLang(e.target.value);
       localStorage.setItem('language', e.target.value)
@@ -23,10 +27,9 @@ function Header() {
 
   const { mode, setMode, setLang } = useContext(context);
   const res = useQuery({
-    queryKey: ["get_Language"],
+    queryKey: ['get_Language'],
     queryFn: getAllLanguage
   })
-  console.log(res);
   return (
     <div className="header w-[100%] text-center dark:bg-slate-600 dark:text-yellow-50 bg-white items-center fixed z-30 top-0 ">
       <div className="container mx-auto">
@@ -42,9 +45,7 @@ function Header() {
               Toshkent shahar
             </a>
             <form className="w-[400px] flex justify-between items-cente">
-              <label className="font-bold text-[32xp]">
-                {" "}
-                Valyuta:
+              <label className="font-bold text-[32xp]">Valyuta:
                 <select className="border dark:text-black p-1 rounded shadow font-medium mx-1">
                 <option  value="sum">SUM</option>
                   <option value="sum">SUM</option>
