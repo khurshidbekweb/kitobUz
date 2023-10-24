@@ -7,7 +7,6 @@ function Translate() {
     queryKey: ['translate_all_item'],
     queryFn: getTranslate
   })
-  console.log(translateBook.data.data);
   return (
     <div>
       <div className="userList flex justify-between items-center p-2 px-2 font-bold">
@@ -31,7 +30,7 @@ function Translate() {
             </tr>
           </thead>
           <tbody>
-            {translateBook?.data.data && translateBook.data.data.map((item)=>{
+            {translateBook?.data?.data && translateBook.data.data.map((item)=>{
               return <tr key={item.id} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
               <td className="px-6 py-4">{item.definition[0].value}</td>
               <td className="px-6 py-4">{item.definition[1].value}</td>
