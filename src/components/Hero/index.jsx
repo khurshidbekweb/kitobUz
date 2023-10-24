@@ -1,17 +1,47 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { getAuthor } from "../../utils/getAuthor";
-import {getGenreAll} from '../../utils/getAllJenre'
+import { getGenreAll } from "../../utils/getAllJenre";
 import "./main.css";
+import { getSearchAll } from "../../utils/getSearch";
+import { useState } from "react";
 
 const Hero = () => {
+  const [searchText, setSearchText] = useState(null);
+  const queryClient = useQueryClient();
   const author = useQuery({
     queryKey: ["set_all_author"],
     queryFn: getAuthor,
   });
-const genre = useQuery({
-  queryKey: ['get_Genre'],
-  queryFn: getGenreAll
-})
+  const genre = useQuery({
+    queryKey: ["get_Genre"],
+    queryFn: getGenreAll,
+  });
+  useQuery({
+    queryKey: ["get_all_book", searchText],
+    queryFn: async () => {
+      const data = await getSearchAll(searchText);
+      await queryClient.setQueryData(["get_all_book"], data.data);
+      return data;
+    },
+  });
+
+  // async function getBase64(file) {
+  //   return new Promise((resolve, reject) => {
+  //     const reader = new FileReader();
+  //     reader.readAsDataURL(file);
+  //     reader.onload = () => {
+  //       resolve(reader.result);
+  //     };
+  //     reader.onerror = reject;
+  //   });
+  // }
+
+  // onChange={async (e) => {
+  //   await getBase64(e.target.files[0]) //
+  //     .then((res) => console.log(res, "my file..."))
+  //     .catch((err) => console.log(err));
+  // }}
+
   return (
     <>
       <div className="hero  pt-20">
@@ -29,6 +59,7 @@ const genre = useQuery({
                 <input
                   type="search"
                   id="heroSearch"
+                  onChange={(e) => setSearchText(e.target.value)}
                   placeholder="search..."
                   className=" pl-8 py-2 w-[100%] shadow dark:bg-white focus:outline-none"
                 />
@@ -46,9 +77,10 @@ const genre = useQuery({
                 <option hidden disabled selected>
                   Janr
                 </option>
-                  {genre?.data?.data && genre.data.data.map((item)=>{ 
-                    return <option key={item.name} >{item.name}</option> 
-                  })} 
+                {genre?.data?.data &&
+                  genre.data.data.map((item) => {
+                    return <option key={item.name}>{item.name}</option>;
+                  })}
               </select>
               <select
                 name="#"
@@ -57,10 +89,10 @@ const genre = useQuery({
                 <option hidden disabled selected>
                   Avtor
                 </option>
-                {author?.data?.data && 
-                author.data.data.map((auth)=>{
-                  return  <option key={auth.name}>{auth.name}</option>                 
-                })}
+                {author?.data?.data &&
+                  author.data.data.map((auth) => {
+                    return <option key={auth.name}>{auth.name}</option>;
+                  })}
               </select>
               <select
                 name="#"

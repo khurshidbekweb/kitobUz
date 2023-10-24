@@ -1,6 +1,13 @@
+import { useQuery } from "@tanstack/react-query";
+import { getAllBooks } from "../../utils/getAllProducts";
 
 
 const Index = () => {
+  const reports = useQuery({
+    queryKey: ['get_all_author'],
+    queryFn:getAllBooks
+  })
+  console.log(reports);
   return (
     <>
       <h2 className="text-[26px]  font-medium pl-5 p-3">Reports</h2>
