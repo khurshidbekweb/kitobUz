@@ -6,14 +6,22 @@ import { useContext } from "react";
 import {context} from '../../context/context'
 import { useQuery } from "@tanstack/react-query";
 import { getAllLanguage } from "../../utils/getAllLanguage";
+import { useQueryClient } from "@tanstack/react-query";
 
 function Index() {
-  const {mode, setMode} = useContext(context);
+  const queryClient = useQueryClient()
+
+  const handleLanguageSelect = (e) =>{
+      setLang(e.target.value);
+      localStorage.setItem('language', e.target.value)
+      queryClient.invalidateQueries()
+  }
+
+  const { mode, setMode, setLang } = useContext(context);
   const language = useQuery({
     queryKey: ['get_Language'],
     queryFn: getAllLanguage
   })
-  console.log(language);
   return (
     <div className="container">
         <div className="wrapper h-[100vh] overflow-hidden bg-slate-100 border dark:border-none flex w-[100%] dark:bg-slate-400 items-start">
@@ -33,12 +41,12 @@ function Index() {
               <li className="home p-2 rounded hover:bg-cyan-500 hover:text-white">
               <NavLink to="/dashboard/">Reports</NavLink>
               </li>
-              <li className="about p-2 rounded mt-2 hover:bg-cyan-500 hover:text-white">
-              <NavLink to="books">Books</NavLink>
-              </li>
               <li className="contact p-2 rounded mt-2 hover:bg-cyan-500 hover:text-white">
               <NavLink to="author">Author</NavLink>              
               </li>
+              <li className="about p-2 rounded mt-2 hover:bg-cyan-500 hover:text-white">
+              <NavLink to="books">Books</NavLink>
+              </li>              
               <li className="contact p-2 rounded mt-2 hover:bg-cyan-500 hover:text-white">
               <NavLink to="genre">Genre</NavLink>              
               </li>
@@ -72,7 +80,7 @@ function Index() {
                 <i className="bx bx-search absolute dark:text-black right-2 top-2"></i>
               </form>
               <label className="font-bold text-[32xp]">Language:
-                <select className="border p-1 rounded shadow font-medium mx-1 dark:text-black">
+                <select onChange={handleLanguageSelect} className="border p-1 rounded shadow font-medium mx-1 dark:text-black">
                   <option value="uz">Uzbek</option>
                   {language?.data?.data && language?.data?.data.filter(item => item.code != 'uz').map((item)=>{
                     return <option key={item.code} value={item.code}>{item.title}</option>

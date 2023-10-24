@@ -16,9 +16,6 @@ const Hero = () => {
     queryKey: ["get_Genre"],
     queryFn: getGenreAll,
   });
-
-
-
   useQuery({
     queryKey: ["get_all_book", searchText],
     queryFn: async () => {
