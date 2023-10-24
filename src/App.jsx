@@ -28,7 +28,6 @@ function App() {
       document.querySelector('html').classList.remove('dark');
       document.querySelector('html').classList.add('light');   
       localStorage.setItem('mode', "light")
-
     }  
   return (
     <>

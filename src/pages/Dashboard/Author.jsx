@@ -1,8 +1,16 @@
-import AddAuthor from "../../components/Modals/AddAuthor";
+
+import { useQuery } from "@tanstack/react-query";
+import AddAuthor from "../../components/AddAuthor";
+import { getAuthor } from "../../utils/getAuthor";
+
 
 function Author() {
-  return (
-    <div className="relative overflow-x-auto shadow-md">
+  const authorRender = useQuery({
+    queryKey: ['get_Author_render'],
+    queryFn: getAuthor
+  })  
+  return (    
+    <div className="relative overflow-x-auto shadow-md">      
       <div className="userList flex justify-between items-center p-2 px-2 font-bold">
         <h1 className="text-[22px] font-medium pl-5 p-3">Author</h1>
         <AddAuthor/>
@@ -14,34 +22,26 @@ function Author() {
               №
             </th>
             <th scope="col" className="px-6 py-3">
-              Author
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Name
-            </th>
+              Author name
+            </th>            
             <th scope="col" className="px-6 py-3"></th>
           </tr>
         </thead>
         <tbody>
-          <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+          {authorRender?.data?.data && authorRender.data.data.map((item,index)=>{
+            return <tr key={item.id} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
             <th
               scope="row"
               className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
             >
-              1
+              {index+1}
             </th>
-            <th
+            <td
               scope="row"
               className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
             >
-              Abdulla Qodiriy
-            </th>
-            <th
-              scope="row"
-              className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-            >
-              O`tgan kunlar
-            </th>
+              {item.name}
+            </td>            
             <td className="pr-4 py-4 text-end">
               <button className="btn text-[22px]  mr-4">
                 <i className="bx bx-pencil"></i>
@@ -51,6 +51,7 @@ function Author() {
               </button>
             </td>
           </tr>
+          })}
         </tbody>
       </table>
     </div>
