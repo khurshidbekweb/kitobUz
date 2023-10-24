@@ -1,7 +1,7 @@
 import Footer from "../../components/Footer";
 import Hero from "../../components/Hero";
 import bookImg from "../../assets/image/bookImg.png";
-import Header from "../../components/Header";
+import Header from "../../components/Header/index.jsx";
 import Cards from "../../components/Cards";
 import { useQuery } from "@tanstack/react-query";
 import { getAllBooks } from "../../utils/getAllProducts";
