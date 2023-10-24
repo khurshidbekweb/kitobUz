@@ -7,5 +7,5 @@ export const customAxios = axios.create({
 
 export const localizationsAxios = axios.create({
   baseURL: "http://192.168.10.23:3002",
-  timeout: 2000
+  timeout: 5000
 })

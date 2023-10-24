@@ -1,16 +1,55 @@
-const AddBook = () => {
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const title = e.target.bookTitle.value;
-  //   const description = e.target.bookDescription.value;
+import { useState } from "react";
+import { addBook } from "../../utils/addBook";
+import toastify from "../../utils/toastify";
 
-  // };
+const AddBookModal = () => {
+  const [image, setImage] = useState(null);
+  async function getBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        resolve(reader.result);
+      };
+      reader.onerror = reject;
+    });
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const title = e.target.bookTitle.value;
+    const description = e.target.bookDescription.value;
+    const language = e.target.bookLang.value;
+    const price = e.target.bookPrice.value;
+    const year = e.target.bookYear.value;
+    const status = e.target.bookStatus.value;
+    const author = e.target.bookAuthor.value;
+    const genre = e.target.bookGenre.value;
+    try {
+      await addBook({
+        title,
+        description,
+        language,
+        price,
+        year,
+        status,
+        image,
+        author,
+        genre,
+      });
+    } catch (err) {
+      toastify.infoMessage("error");
+    }
+  };
 
   return (
     <>
       <button
-        data-modal-target="add-book-modal"
-        data-modal-toggle="add-book-modal"
+        onClick={() => {
+          document
+            .querySelector("#add-book-modal")
+            .classList.replace("hidden", "visible");
+        }}
         className="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         type="button"
       >
@@ -26,9 +65,13 @@ const AddBook = () => {
         <div className="modal relative w-full max-w-4xl max-h-full mx-auto">
           <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <button
+              onClick={() => {
+                document
+                  .querySelector("#add-book-modal")
+                  .classList.replace("visible", "hidden");
+              }}
               type="button"
               className="absolute top-0 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-              data-modal-hide="add-book-modal"
             >
               <svg
                 className="w-3 h-3"
@@ -62,8 +105,15 @@ const AddBook = () => {
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Book title
-                    <select name="bookTitle" id="bookTitle" required className="block mt-1 w-full mb-2 py-3 border border-gray-300 rounded-lg text-sm font-medium text-gray-900 dark:text-white">
-                      <option disabled value="1">title</option>
+                    <select
+                      name="bookTitle"
+                      id="bookTitle"
+                      required
+                      className="block mt-1 w-full mb-2 py-3 border border-gray-300 rounded-lg text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      <option disabled value="1">
+                        title
+                      </option>
                       <option value="1">title</option>
                       <option value="1">title</option>
                       <option value="1">title</option>
@@ -76,8 +126,15 @@ const AddBook = () => {
                     className="block mb-2  text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Book description
-                    <select name="bookDescription" id="bookDescription" required className="block mt-1 w-full mb-2 py-3 border border-gray-300 rounded-lg text-sm font-medium text-gray-900 dark:text-white">
-                      <option disabled value="1">description</option>
+                    <select
+                      name="bookDescription"
+                      id="bookDescription"
+                      required
+                      className="block mt-1 w-full mb-2 py-3 border border-gray-300 rounded-lg text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      <option disabled value="1">
+                        description
+                      </option>
                       <option value="1">description</option>
                       <option value="1">description</option>
                       <option value="1">description</option>
@@ -91,12 +148,19 @@ const AddBook = () => {
                   >
                     Book language
                   </label>
-                  <select name="bookLang" id="bookLang" required className="block mt-1 w-full mb-2 py-3 border border-gray-300 rounded-lg text-sm font-medium text-gray-900 dark:text-white">
-                      <option disabled value="1">language</option>
-                      <option value="1">language</option>
-                      <option value="1">language</option>
-                      <option value="1">description</option>
-                    </select>
+                  <select
+                    name="bookLang"
+                    id="bookLang"
+                    required
+                    className="block mt-1 w-full mb-2 py-3 border border-gray-300 rounded-lg text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    <option disabled value="1">
+                      language
+                    </option>
+                    <option value="1">language</option>
+                    <option value="1">language</option>
+                    <option value="1">description</option>
+                  </select>
                 </div>
                 <div>
                   <label
@@ -154,6 +218,11 @@ const AddBook = () => {
                     Book image
                   </label>
                   <input
+                    onChange={async (e) => {
+                      await getBase64(e.target.files[0]) //
+                        .then((res) => setImage(res))
+                        .catch((err) => console.log(err));
+                    }}
                     type="file"
                     name="bookImage"
                     id="bookImage"
@@ -230,4 +299,4 @@ const AddBook = () => {
   );
 };
 
-export default AddBook;
+export default AddBookModal;

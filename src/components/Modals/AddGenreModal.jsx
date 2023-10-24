@@ -1,9 +1,12 @@
-const AddGenre = () => {
+const AddGenreModal = () => {
     return (
       <>
         <button
-          data-modal-target="add-genre-modal"
-          data-modal-toggle="add-genre-modal"
+          onClick={() => {
+            document
+              .querySelector("#add-genre-modal")
+              .classList.replace("hidden", "visible");
+          }}
           className="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           type="button"
         >
@@ -19,6 +22,11 @@ const AddGenre = () => {
           <div className="modal relative w-full max-w-sm max-h-full mx-auto">
             <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
               <button
+               onClick={() => {
+                document
+                  .querySelector("#add-genre-modal")
+                  .classList.replace("visible", "hidden");
+              }}
                 type="button"
                 className="absolute top-0 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
                 data-modal-hide="add-genre-modal"
@@ -50,7 +58,7 @@ const AddGenre = () => {
                       htmlFor="bookGenre"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      Author name
+                      Genre 
                     </label>
                     <input
                       type="text"
@@ -76,5 +84,5 @@ const AddGenre = () => {
     );
   };
   
-  export default AddGenre;
+  export default AddGenreModal;
   

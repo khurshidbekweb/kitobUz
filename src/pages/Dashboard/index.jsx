@@ -9,66 +9,21 @@ import { getAllLanguage } from "../../utils/getAllLanguage";
 import { useQueryClient } from "@tanstack/react-query";
 
 function Index() {
+  const queryClient = useQueryClient();
 
-  const queryClient = useQueryClient()
-
-  const handleLanguageSelect = (e) =>{
-      setLang(e.target.value);
-      localStorage.setItem('language', e.target.value)
-      queryClient.invalidateQueries()
-  }
+  const handleLanguageSelect = (e) => {
+    setLang(e.target.value);
+    localStorage.setItem("language", e.target.value);
+    queryClient.invalidateQueries();
+  };
 
   const { mode, setMode, setLang } = useContext(context);
   const language = useQuery({
-    queryKey: ['get_Language'],
-    queryFn: getAllLanguage
-  })
-  return (
-    <div className="container">
-        <div className="wrapper h-[100vh] overflow-hidden bg-slate-100 border dark:border-none flex w-[100%] dark:bg-slate-400 items-start">
-          <div className="aside w-[300px] h-[100vh] bg-[#F2EAE1] dark:bg-slate-500 dark:border rounded-l p-2">
-            <div className="user w-[80px] flex dark:text-white text-black items-center mx-auto text-center">
-              <span className="block w-[3px] text-center rounded mx-2 h-[20px] bg-yellow-300"></span>
-              <h1 className="text-[24px] text-center font-black">Books</h1>
-            </div>
-            <div className="userImg mt-5">
-              <img
-                className="overflow-hidden w-[100%] rounded-[10px]"
-                src={imgUser}
-                alt="userImg"
-              />
-            </div>
-            <ul className="w-[100%] p-2 list text-center mx-auto">
-              <li className="home p-2 rounded hover:bg-cyan-500 hover:text-white">
-              <NavLink to="/dashboard/">Reports</NavLink>
-              </li>
-              <li className="contact p-2 rounded mt-2 hover:bg-cyan-500 hover:text-white">
-              <NavLink to="author">Author</NavLink>              
-              </li>
-              <li className="about p-2 rounded mt-2 hover:bg-cyan-500 hover:text-white">
-              <NavLink to="books">Books</NavLink>
-              </li>              
-              <li className="contact p-2 rounded mt-2 hover:bg-cyan-500 hover:text-white">
-              <NavLink to="genre">Genre</NavLink>              
-              </li>
-              <li className="contact p-2 rounded mt-2 hover:bg-cyan-500 hover:text-white">
-              <NavLink to="language">Language</NavLink>              
-              </li>
-              <li className="contact p-2 rounded mt-2 hover:bg-cyan-500 hover:text-white">
-              <NavLink to="translate">Translate</NavLink>              
-              </li>
-              <li className="contact text-red-900 underline rounded mt-12">
-              <NavLink to="/" className= "flex items-center tpx] hover:bg-cyan-500 hover:text-white" ><p>LogOut</p>
-                                <span className="block mt-2 mx-2"><i className='bx bx-log-in-circle text-[20px]'></i></span>
-              </NavLink>              
-              </li>
-            </ul>
 
-  const { mode, setMode } = useContext(context);
-  const language = useQuery({
     queryKey: ["get_Language"],
-    queryFn: getAllLanguage,
+    queryFn: getAllLanguage,  
   });
+
   return (
     <div className="container">
       <div className="wrapper h-[100vh] overflow-hidden bg-slate-100 border dark:border-none flex w-[100%] dark:bg-slate-400 items-start">
@@ -76,7 +31,6 @@ function Index() {
           <div className="user w-[80px] flex dark:text-white text-black items-center mx-auto text-center">
             <span className="block w-[3px] text-center rounded mx-2 h-[20px] bg-yellow-300"></span>
             <h1 className="text-[24px] text-center font-black">Books</h1>
-
           </div>
           <div className="userImg mt-5">
             <img
@@ -137,7 +91,7 @@ function Index() {
             <li className="contact text-red-900 underline rounded mt-12">
               <NavLink
                 to="/"
-                className="flex items-center tpx] hover:bg-cyan-500 hover:text-white"
+                className="flex items-center tpx] px-8 py-[5px] rounded-lg hover:bg-red-500 hover:text-white"
               >
                 <p>LogOut</p>
                 <span className="block mt-2 mx-2">
@@ -146,7 +100,7 @@ function Index() {
               </NavLink>
             </li>
           </ul>
-        </div>
+          </div>
         <div className="main w-[98%] rounded">
           <div className="dashHeader dark:border rounded-r dark:bg-slate-500 h-[50px] bg-white px-2 w-[100%] flex justify-between items-center">
             <button className="w-10  p-2">
@@ -162,11 +116,9 @@ function Index() {
                 />
                 <i className="bx bx-search absolute dark:text-black right-2 top-2"></i>
               </form>
-
               <label className="font-bold text-[32xp]">Language:
-                <select onChange={handleLanguageSelect} className="border p-1 rounded shadow font-medium mx-1 dark:text-black">
+                <select onChange={handleLanguageSelect} className="border p-1 rounded shadow font-medium mx-1 dark:text-black">              
 
-              
                   <option value="uz">Uzbek</option>
                   {language?.data?.data &&
                     language?.data?.data
@@ -199,9 +151,8 @@ function Index() {
           </div>
           <Outlet />
         </div>
-      </div>
+        </div>
     </div>
   );
-}
-
+}  
 export default Index;
