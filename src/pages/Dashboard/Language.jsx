@@ -27,31 +27,20 @@ function Language() {
             </tr>
           </thead>
           <tbody>
-            {languageAll?.data?.data &&
-              languageAll.data.data.map((item) => {
-                return (
-                  <tr
-                    key={item.id}
-                    className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
-                  >
-                    <th
-                      scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                    >
-                      {item.code}
-                    </th>
-                    <td className="px-6 py-4">{item.title}</td>
-                    <td className="px-6 py-4 text-end">
-                      <button className="btn text-[22px]  mr-4">
-                        <i className="bx bx-pencil"></i>
-                      </button>
-                      <button className="btn text-[22px]">
-                        <i className="bx bx-trash"></i>
-                      </button>
-                    </td>
-                  </tr>
-                );
-              })}
+            {languageAll?.data && languageAll.data.map((item)=>{
+              return <tr key={item.id} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+              <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{item.code}</th>
+              <td className="px-6 py-4">{item.title}</td>
+              <td className="px-6 py-4 text-end">
+                <button className="btn text-[22px]  mr-4">
+                  <i className="bx bx-pencil"></i>
+                </button>
+                <button className="btn text-[22px]">
+                  <i className="bx bx-trash"></i>
+                </button>
+              </td>
+            </tr>
+            })}
           </tbody>
         </table>
       </div>

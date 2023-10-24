@@ -30,27 +30,23 @@ function Translate() {
             </tr>
           </thead>
           <tbody>
-            {translateBook?.data?.data &&
-              translateBook.data.data.map((item) => {
-                return (
-                  <tr
-                    key={item.id}
-                    className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
-                  >
-                    <td className="px-6 py-4">{item.definition[0].value}</td>
-                    <td className="px-6 py-4">{item.definition[1].value}</td>
-                    <td className="px-6 py-4">{item.definition[2].value}</td>
-                    <td className="px-6 py-4 text-end">
-                      <button className="btn text-[22px]  mr-4">
-                        <i className="bx bx-pencil"></i>
-                      </button>
-                      <button className="btn text-[22px]">
-                        <i className="bx bx-trash"></i>
-                      </button>
-                    </td>
-                  </tr>
-                );
-              })}
+
+
+            {translateBook?.data?.data && translateBook.data.data.map((item)=>{
+              return <tr key={item.id} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+              <td className="px-6 py-4">{item.definition[0].value}</td>
+              <td className="px-6 py-4">{item.definition[1].value}</td>
+              <td className="px-6 py-4">{item.definition[2].value}</td>
+              <td className="px-6 py-4 text-end">
+                <button className="btn text-[22px]  mr-4">
+                  <i className="bx bx-pencil"></i>
+                </button>
+                <button className="btn text-[22px]">
+                  <i className="bx bx-trash"></i>
+                </button>
+              </td>
+            </tr>
+            })}
           </tbody>
         </table>
       </div>
