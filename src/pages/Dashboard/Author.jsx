@@ -1,6 +1,8 @@
+
 import { useQuery } from "@tanstack/react-query";
 import AddAuthor from "../../components/AddAuthor";
 import { getAuthor } from "../../utils/getAuthor";
+
 
 function Author() {
   const authorRender = useQuery({

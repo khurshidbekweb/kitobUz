@@ -1,6 +1,8 @@
+
 import { useQuery } from "@tanstack/react-query";
 import AddGenre from "../../components/AddGenre";
 import { getGenreAll } from "../../utils/getAllJenre";
+
 
 function Genre() {
   const genreRender = useQuery({
@@ -11,7 +13,7 @@ function Genre() {
     <div className="relative overflow-x-auto shadow-md">
       <div className="userList flex justify-between items-center p-2 px-2 font-bold">
         <h1 className="text-[22px] font-medium pl-5 p-3">Genre</h1>
-        <AddGenre />
+        <AddGenre/>
       </div>
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
