@@ -7,9 +7,7 @@ import { context } from "../../context/context";
 import { useContext } from "react";
 import "./index.css";
 
-
 import {getAllLanguage} from "../../utils/getAllLanguage";
-// import { useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";
 import { useQueryClient } from "@tanstack/react-query";
@@ -55,8 +53,9 @@ function Header() {
               </label>
               <label className="font-bold text-[32xp]">Language:
                 <select onChange={handleLanguageSelect} className="border p-1 rounded shadow font-medium mx-1 dark:text-black">
-                <option value='uz'>Uzbek</option>
-                  {res?.data?.data && res.data.data.filter(e => e.code != 'uz').map((item)=>{                    
+                <option value='uz'>Uzbek</option> 
+  
+                  {res?.data && res.data.filter(e => e.code != 'uz').map((item)=>{                    
                     return  <option key={item.id}  value={item.code}>{item.title}</option>                    
                   })}
                 </select>

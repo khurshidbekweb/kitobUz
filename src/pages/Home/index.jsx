@@ -52,7 +52,7 @@ const Home = () => {
                 </div>
               </li>
               <li className="card border-2 rounded-xl ">
-                <img src={bookImg} alt="book image" />
+                <img src='https://176.53.162.53:9000/books/0699d42d-735d-49fc-a84d-8c5946e14ab9.jpeg' alt="book image" />
                 <div className="px-5 flex flex-col gap-2 mt-3 mb-2">
                   <h2 className="font-bold text-2xl">Ihyou Ulumid din</h2>
                   <p className="opacity-50 font-medium text-lg">

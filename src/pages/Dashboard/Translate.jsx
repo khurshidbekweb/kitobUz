@@ -1,11 +1,20 @@
 import AddTranslateModal from "../../components/Modals/AddTranslateModal";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getTranslate } from "../../utils/getTranslateAll";
+import { deletTrenslate } from "../../utils/deletTranslate";
 
 function Translate() {
-  const translateBook = useQuery({
+  const deletTranslateMutation = useQueryClient();
+  const translateBook = useQuery({  
     queryKey: ['translate_all_item'],
     queryFn: getTranslate
+  })
+
+  const deletTrans = useMutation({
+    mutationFn: deletTrenslate,
+    onSuccess: ()=>{
+      deletTranslateMutation.invalidateQueries({queryKey: ["translate_all_item"]})
+    }
   })
   return (
     <div>
@@ -31,17 +40,16 @@ function Translate() {
           </thead>
           <tbody>
 
-
-            {translateBook?.data?.data && translateBook.data.data.map((item)=>{
+            {translateBook?.data?.data?.length && translateBook?.data?.data?.map((item)=>{
               return <tr key={item.id} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-              <td className="px-6 py-4">{item.definition[0].value}</td>
-              <td className="px-6 py-4">{item.definition[1].value}</td>
-              <td className="px-6 py-4">{item.definition[2].value}</td>
+              <td className="px-6 py-4">{item.definition[0]?.value}</td>
+              <td className="px-6 py-4">{item.definition[1]?.value}</td>
+              <td className="px-6 py-4">{item.definition[2]?.value}</td>
               <td className="px-6 py-4 text-end">
                 <button className="btn text-[22px]  mr-4">
                   <i className="bx bx-pencil"></i>
                 </button>
-                <button className="btn text-[22px]">
+                <button onClick={async ()=> await deletTrans.mutateAsync(item.id)} className="btn text-[22px]">
                   <i className="bx bx-trash"></i>
                 </button>
               </td>

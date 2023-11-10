@@ -3,36 +3,33 @@ import { addLanguage } from "../../utils/addLanguage";
 import toastify from "../../utils/toastify";
 
 const AddLangModal = () => {
-  const booksQuery = useQueryClient();
-
-  const mutation = useMutation({
+  const newqueryClent = useQueryClient();
+  const useMutetion = useMutation({
     mutationFn: addLanguage,
     onSuccess: () => {
-      booksQuery.invalidateQueries({ queryKey: ["language_all_item"] });
+      newqueryClent.invalidateQueries({queryKey: ["language_all_item"]})
     },
-  });
-
-  const handleSubmit = async (e) => {
+  })
+  const handleSubmit = async (e)=>{
     e.preventDefault();
     const code = e.target.bookLangCode.value;
     const title = e.target.bookLangTitle.value;
-    try {
-      await mutation.mutateAsync({ code, title });
-      toastify.successMessage("Language added successfully!");
+    try{
+      await useMutetion.mutateAsync({code, title});
+      toastify.successMessage("Very greate 🙌🙌")
       document
-        .querySelector("#add-language-modal")
-        .classList.replace("visible", "hidden");
-    } catch (err) {
-      toastify.infoMessage(`Error=>${err.response.data.message}`);
+      .getElementById("#add-language-modal")
+      .classList.replace("hidden", "visible");
+    } catch(error){
+      toastify.errorMessage(error?.message || "Do not add masseage 😒")
+      console.log(error);
     }
-  };
+  }
   return (
     <>
       <button
         onClick={() => {
-          document
-            .querySelector("#add-language-modal")
-            .classList.replace("hidden", "visible");
+          document.querySelector("#add-language-modal").classList.replace("hidden", "visible");
         }}
         className="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         type="button"
@@ -80,7 +77,10 @@ const AddLangModal = () => {
                 Add language
               </h3>
               <form
-              onSubmit={handleSubmit} className=" flex flex-col gap-2" action="#">
+                onSubmit={handleSubmit}
+                className=" flex flex-col gap-2"
+                action="#"
+              >
                 <div>
                   <label
                     htmlFor="bookLangCode"

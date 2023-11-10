@@ -8,6 +8,7 @@ function Book() {
     queryKey: ["get_all_book"],
     queryFn: getAllBooks,
   });
+  console.log(allBooks.data);
   return (
     <>
       <div className="relative overflow-x-auto shadow-md">
@@ -63,7 +64,7 @@ function Book() {
                       <img
                         className="w-8 h-8 rounded"
                         src={IMG_BASE_URL + item.image}
-                        alt=""
+                        alt="imgBook"
                       />
                     </td>
                     <td className="px-6 py-4">{item.genre.value}</td>

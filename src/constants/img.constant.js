@@ -1,1 +1,1 @@
-export const IMG_BASE_URL = 'http://192.168.10.23:9000/'; 
+export const IMG_BASE_URL = 'https://192.168.10.23:9000/'; 
